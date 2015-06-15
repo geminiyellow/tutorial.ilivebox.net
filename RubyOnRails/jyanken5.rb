@@ -10,7 +10,7 @@ end
 
 def level_up(members)
   group = members.group_by {|member| member['value']}
-  (group.keys.length == 2) ? members : group[win(group.keys[0], group.keys[1])]   
+  (group.keys.length == 2) ? group[win(group.keys[0], group.keys[1])] : members   
 end  
 
 def once_again(members)
