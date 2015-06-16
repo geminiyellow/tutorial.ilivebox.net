@@ -1,7 +1,6 @@
 require './Mora'
 
 class Player
-  @hand = nil
   attr_reader :hand
   attr_reader :name
 
@@ -35,4 +34,5 @@ class Match
   end
 end
 
+puts '今度何回試しますか？'
 Match.new.start(gets.to_i)
