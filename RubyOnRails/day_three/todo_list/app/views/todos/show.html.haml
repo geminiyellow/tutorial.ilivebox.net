@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Due:
+  = @todo.due
+%p
+  %b Task:
+  = @todo.task
+
+= link_to 'Edit', edit_todo_path(@todo)
+\|
+= link_to 'Back', todos_path
