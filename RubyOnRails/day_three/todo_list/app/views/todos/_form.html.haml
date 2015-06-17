@@ -11,6 +11,11 @@
       = f.text_field :task, class: 'form-control'
 
     .field.form-group
+      = f.label :user_id, class: 'form-static'
+      %div
+        = select('todo', 'user_id', User.all.collect {|u| [ u.name, u.id ] })
+
+    .field.form-group
       = f.label :memo, class: 'form-static'
       = f.text_area :memo, class: 'form-control', style: 'max-width: 100%', rows: 5
 

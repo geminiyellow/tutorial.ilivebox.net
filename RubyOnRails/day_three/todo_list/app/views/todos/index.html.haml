@@ -4,6 +4,7 @@
   %thead
     %tr
       %th Due
+      %th User
       %th Task
       %th Action
 
@@ -11,6 +12,7 @@
     - @todos.each do |todo|
       %tr
         %td{style: 'width: 20%; min-width: 120px'}= todo.due
+        %td{style: 'width: 15%; min-width: 120px'}= todo.user.name
         %td{style: 'width: 100%'}= todo.task
         %td
           %div{style: 'width: 30%; min-width: 200px'}
