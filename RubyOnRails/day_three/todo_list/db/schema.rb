@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617022307) do
+ActiveRecord::Schema.define(version: 20150617063958) do
 
   create_table "todos", force: :cascade do |t|
     t.date     "due"
     t.string   "task"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "memo"
   end
 
 end

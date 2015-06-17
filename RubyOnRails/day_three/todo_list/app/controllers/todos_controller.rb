@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   # GET /todos
   def index
-    @todos = Todo.all
+    @todos = Todo.order(created_at: :desc)
   end
 
   # GET /todos/1
@@ -46,13 +46,13 @@ class TodosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_todo
-      @todo = Todo.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_todo
+    @todo = Todo.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def todo_params
-      params.require(:todo).permit(:due, :task)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def todo_params
+    params.require(:todo).permit(:due, :task, :memo)
+  end
 end
