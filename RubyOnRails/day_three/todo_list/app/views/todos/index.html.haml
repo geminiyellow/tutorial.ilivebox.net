@@ -1,23 +1,23 @@
 %h1 Listing todos
 
-%table
+%table.table.table-striped
   %thead
     %tr
       %th Due
       %th Task
-      %th
-      %th
-      %th
+      %th Action
 
   %tbody
     - @todos.each do |todo|
       %tr
-        %td= todo.due
-        %td= todo.task
-        %td= link_to 'Show', todo
-        %td= link_to 'Edit', edit_todo_path(todo)
-        %td= link_to 'Destroy', todo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td{style: 'width: 20%; min-width: 120px'}= todo.due
+        %td{style: 'width: 100%'}= todo.task
+        %td
+          %div{style: 'width: 30%; min-width: 200px'}
+            = link_to 'Show', todo, class: 'btn btn-default'
+            = link_to 'Edit', edit_todo_path(todo), class: 'btn btn-primary'
+            = link_to 'Destroy', todo, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
-= link_to 'New Todo', new_todo_path
+= link_to 'New Todo', new_todo_path, class: 'btn btn-primary pull-right'

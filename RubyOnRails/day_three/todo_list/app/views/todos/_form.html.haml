@@ -6,11 +6,14 @@
         - @todo.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :due
-    = f.date_select :due
-  .field
-    = f.label :task
-    = f.text_field :task
-  .actions
-    = f.submit 'Save'
+  %div
+    .field.form-group
+      = f.label :due, class: 'form-static'
+      %div
+        = f.date_select :due, {}
+    -#= f.date_select :due, {}, {class: 'selectpicker show-tick'}
+    .field.form-group
+      = f.label :task, class: 'form-static'
+      = f.text_field :task, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-primary'

@@ -1,12 +1,15 @@
-%p#notice= notice
+%h1= 'Show'
 
-%p
-  %b Due:
-  = @todo.due
-%p
-  %b Task:
-  = @todo.task
+%div.form.well
+  %div.form-group
+    %h4 Due:
+    %div= @todo.due
+  %div.form-group
+    %h4 Task:
+    %div= @todo.task
 
-= link_to 'Edit', edit_todo_path(@todo)
-\|
-= link_to 'Back', todos_path
+- unless notice.nil?
+  %p.alert.alert-success#notice= notice
+
+= link_to 'Edit', edit_todo_path(@todo), class: 'btn btn-primary'
+= link_to 'Back', todos_path, class: 'btn btn-default'
