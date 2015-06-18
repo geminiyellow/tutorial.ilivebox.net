@@ -16,10 +16,21 @@
         %td{style: 'width: 100%'}= todo.task
         %td
           %div{style: 'width: 30%; min-width: 200px'}
-            = link_to 'Show', todo, class: 'btn btn-default'
+            = link_to 'Quick', todo, class: 'btn btn-success quick', remote: true
+            -#= link_to 'Show', todo, class: 'btn btn-default'
             = link_to 'Edit', edit_todo_path(todo), class: 'btn btn-primary'
             = link_to 'Destroy', todo, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
 %br
 
 = link_to 'New Todo', new_todo_path, class: 'btn btn-primary pull-right'
+
+%br
+%br
+%br
+
+%div#detail_area
+:javascript
+  $('a.quick').on('ajax:success', function(event, data, status, xhr){
+    $('#detail_area').html(data);
+  })

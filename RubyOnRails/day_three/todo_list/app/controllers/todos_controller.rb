@@ -8,6 +8,7 @@ class TodosController < ApplicationController
 
   # GET /todos/1
   def show
+    render partial: 'show' if request.xhr?
   end
 
   # GET /todos/new
