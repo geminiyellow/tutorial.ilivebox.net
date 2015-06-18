@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root to: 'logins#new'
+
+  resources :logins
+
   resources :users do
     resources :todos
   end
