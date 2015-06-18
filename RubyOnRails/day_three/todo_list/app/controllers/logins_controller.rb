@@ -1,7 +1,9 @@
 class LoginsController < ApplicationController
+  skip_before_action :require_login
 
   # GET /logins/new
   def new
+    redirect_to todos_path unless session[:login].nil?
     @user = User.new
   end
 
@@ -20,7 +22,7 @@ class LoginsController < ApplicationController
   # DELETE /logins/:id
   def destroy
     session[:login] = nil
-    render :new
+    redirect_to new_login_path
   end
 
   # Only allow a trusted parameter "white list" through.

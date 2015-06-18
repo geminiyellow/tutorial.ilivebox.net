@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'logins#new'
 
-  resources :logins
+  resources :logins, only: [:new, :destroy, :create]
 
   resources :users do
     resources :todos
