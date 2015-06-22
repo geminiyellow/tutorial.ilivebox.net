@@ -1,0 +1,14 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{'aria-expanded': 'false', 'data-target': '#bs-example-navbar-collapse-1', 'data-toggle': 'collapse', :type => 'button'}
+      = link_to 'BookStore', root_path, class: 'navbar-brand'
+    / Collect the nav links, forms, and other content for toggling
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a= 'Login'
+          -#- unless session[:login].nil?
+          -#= link_to 'Logout', login_path(1), :method => :delete

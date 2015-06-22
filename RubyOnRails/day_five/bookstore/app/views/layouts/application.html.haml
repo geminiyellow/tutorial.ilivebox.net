@@ -1,9 +1,18 @@
 !!! 5
 %html
   %head
-  %title TodoList
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %title= content_for?(:title) ? yield(:title) : "BookStore"
+    %meta{:content => content_for?(:description) ? yield(:description) : "BookStore", :name => "description"}
+      = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+      = javascript_include_tag 'application', 'data-turbolinks-track' => true
+      = csrf_meta_tags
   %body.container
-    = yield
+    = render './layouts/navbar'
+    %main{:role => 'main'}
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          %div{:class => "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
+            %button.close{'aria-hidden' => 'true', 'data-dismiss' => 'alert', :type => 'button'} &times;
+            = content_tag :div, msg, :id => "flash_#{name}"
+      = yield
