@@ -1,33 +1,13 @@
-%p#notice= notice
+%br
 
-%p
-  %b Title:
-  = @book.title
-%p
-  %b Display order:
-  = @book.display_order
-%p
-  %b Price:
-  = @book.price
-%p
-  %b Description:
-  = @book.description
-%p
-  %b Isbn:
-  = @book.isbn
-%p
-  %b Cover url:
-  = @book.cover_url
-%p
-  %b Author:
-  = @book.author
-%p
-  %b Icon path:
-  = @book.icon_path
-%p
-  %b Category:
-  = @book.category
-
-= link_to 'Edit', edit_book_path(@book)
-\|
-= link_to 'Back', books_path
+.col-lg-3.col-xs-12
+  = image_tag @book.cover
+.col-lg-g.col-xs-12
+  %h3
+    = @book.title
+    (#{@book.author})
+  -#\#{link_to @book.isdn do}
+  -#  = image_tag asset_path("isdn.png")
+  %p.label.movie-label.radius.mb1
+    $ #{@book.price}
+  %p= @book.description

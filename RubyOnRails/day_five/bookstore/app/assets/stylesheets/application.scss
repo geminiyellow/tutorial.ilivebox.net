@@ -20,3 +20,24 @@ body {
   @extend .container;
   padding-top: 50px;
 }
+
+.books-grid {
+  .book-card {
+    margin: auto;
+    width: 220px;
+    .cover img {
+      height: 325px;
+      width: 100%;
+    }
+    .book-info .title {
+      height: 4em;
+    }
+  }
+}
+
+ul.no-bullet {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
